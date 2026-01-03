@@ -1,0 +1,336 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 15 Pro",
+      "category": "Phones",
+      "price": 999.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "6.1-inch Super Retina XDR",
+        "processor": "A17 Pro chip",
+        "camera": "48MP Main, 12MP Ultra Wide, 12MP Telephoto",
+        "storage": "128GB, 256GB, 512GB, 1TB",
+        "battery": "Up to 23 hours video playback",
+        "colors": ["Natural Titanium", "Blue Titanium", "White Titanium", "Black Titanium"]
+      },
+      "description": "The most powerful iPhone ever with titanium design and Action button"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S24 Ultra",
+      "category": "Phones",
+      "price": 1199.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "6.8-inch Dynamic AMOLED 2X",
+        "processor": "Snapdragon 8 Gen 3",
+        "camera": "200MP Main, 12MP Ultra Wide, 50MP Telephoto (5x), 10MP Telephoto (3x)",
+        "storage": "256GB, 512GB, 1TB",
+        "battery": "5000mAh",
+        "colors": ["Titanium Gray", "Titanium Black", "Titanium Violet", "Titanium Yellow"]
+      },
+      "description": "Ultimate flagship with S Pen and AI-powered features"
+    },
+    {
+      "id": 3,
+      "name": "Google Pixel 8 Pro",
+      "category": "Phones",
+      "price": 899.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "6.7-inch LTPO OLED",
+        "processor": "Google Tensor G3",
+        "camera": "50MP Main, 48MP Ultra Wide, 48MP Telephoto",
+        "storage": "128GB, 256GB, 512GB",
+        "battery": "5050mAh",
+        "colors": ["Obsidian", "Porcelain", "Bay"]
+      },
+      "description": "Best Android camera phone with Google AI features"
+    },
+    {
+      "id": 4,
+      "name": "MacBook Pro 14-inch M3",
+      "category": "Laptops",
+      "price": 1599.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "14.2-inch Liquid Retina XDR",
+        "processor": "Apple M3 chip",
+        "memory": "8GB, 16GB, 24GB unified memory",
+        "storage": "512GB, 1TB, 2TB SSD",
+        "battery": "Up to 22 hours",
+        "colors": ["Space Gray", "Silver"]
+      },
+      "description": "Supercharged for pros with M3 chip"
+    },
+    {
+      "id": 5,
+      "name": "Dell XPS 15",
+      "category": "Laptops",
+      "price": 1399.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "15.6-inch FHD+ or 3.5K OLED",
+        "processor": "Intel Core i7-13700H",
+        "memory": "16GB, 32GB, 64GB DDR5",
+        "storage": "512GB, 1TB, 2TB SSD",
+        "graphics": "NVIDIA GeForce RTX 4050/4060",
+        "colors": ["Platinum Silver", "Graphite"]
+      },
+      "description": "Premium Windows laptop for creators and professionals"
+    },
+    {
+      "id": 6,
+      "name": "ASUS ROG Strix G16",
+      "category": "Laptops",
+      "price": 1499.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "16-inch FHD 165Hz",
+        "processor": "Intel Core i9-13980HX",
+        "memory": "16GB, 32GB DDR5",
+        "storage": "1TB SSD",
+        "graphics": "NVIDIA GeForce RTX 4060/4070",
+        "colors": ["Eclipse Gray"]
+      },
+      "description": "High-performance gaming laptop with RGB lighting"
+    },
+    {
+      "id": 7,
+      "name": "HP Pavilion 15",
+      "category": "Laptops",
+      "price": 699.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "15.6-inch FHD",
+        "processor": "Intel Core i5-1235U",
+        "memory": "8GB, 16GB DDR4",
+        "storage": "256GB, 512GB SSD",
+        "graphics": "Intel Iris Xe",
+        "colors": ["Natural Silver", "Pale Gold"]
+      },
+      "description": "Affordable laptop for everyday computing"
+    },
+    {
+      "id": 8,
+      "name": "LG C3 OLED 55-inch",
+      "category": "TVs",
+      "price": 1399.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "55-inch 4K OLED",
+        "resolution": "3840 x 2160",
+        "refresh_rate": "120Hz",
+        "hdr": "Dolby Vision, HDR10, HLG",
+        "smart_platform": "webOS 23",
+        "ports": "4x HDMI 2.1"
+      },
+      "description": "Perfect OLED TV for gaming and movies"
+    },
+    {
+      "id": 9,
+      "name": "Samsung QN90C Neo QLED 65-inch",
+      "category": "TVs",
+      "price": 1799.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "65-inch 4K Neo QLED",
+        "resolution": "3840 x 2160",
+        "refresh_rate": "120Hz",
+        "hdr": "HDR10+, HLG",
+        "smart_platform": "Tizen",
+        "ports": "4x HDMI 2.1"
+      },
+      "description": "Bright QLED TV with Mini LED technology"
+    },
+    {
+      "id": 10,
+      "name": "Sony X90L 55-inch",
+      "category": "TVs",
+      "price": 1199.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "55-inch 4K LED",
+        "resolution": "3840 x 2160",
+        "refresh_rate": "120Hz",
+        "hdr": "Dolby Vision, HDR10, HLG",
+        "smart_platform": "Google TV",
+        "ports": "4x HDMI 2.1"
+      },
+      "description": "Great gaming TV with low input lag"
+    },
+    {
+      "id": 11,
+      "name": "TCL 6-Series 55-inch",
+      "category": "TVs",
+      "price": 599.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "55-inch 4K QLED",
+        "resolution": "3840 x 2160",
+        "refresh_rate": "120Hz",
+        "hdr": "Dolby Vision, HDR10, HLG",
+        "smart_platform": "Google TV",
+        "ports": "4x HDMI 2.1"
+      },
+      "description": "Budget-friendly QLED TV with great picture quality"
+    },
+    {
+      "id": 12,
+      "name": "Sony WH-1000XM5",
+      "category": "Audio",
+      "price": 399.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "type": "Over-ear headphones",
+        "noise_cancellation": "Industry-leading ANC",
+        "battery": "Up to 30 hours",
+        "connectivity": "Bluetooth 5.2, 3.5mm jack",
+        "features": "Multipoint connection, LDAC, Speak-to-Chat",
+        "colors": ["Black", "Silver"]
+      },
+      "description": "Best noise-cancelling headphones"
+    },
+    {
+      "id": 13,
+      "name": "Apple AirPods Pro (2nd Gen)",
+      "category": "Audio",
+      "price": 249.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "type": "In-ear wireless earbuds",
+        "noise_cancellation": "Active ANC",
+        "battery": "Up to 6 hours (30 with case)",
+        "connectivity": "Bluetooth 5.3",
+        "features": "Spatial Audio, Adaptive Transparency, USB-C charging",
+        "colors": ["White"]
+      },
+      "description": "Premium wireless earbuds with MagSafe charging"
+    },
+    {
+      "id": 14,
+      "name": "Bose QuietComfort Ultra Earbuds",
+      "category": "Audio",
+      "price": 299.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "type": "In-ear wireless earbuds",
+        "noise_cancellation": "World-class ANC",
+        "battery": "Up to 6 hours (24 with case)",
+        "connectivity": "Bluetooth 5.3",
+        "features": "Immersive Audio, CustomTune, IPX4 water resistance",
+        "colors": ["Black", "White Smoke", "Moonstone Blue"]
+      },
+      "description": "Superior sound quality with excellent ANC"
+    },
+    {
+      "id": 15,
+      "name": "Sonos Arc",
+      "category": "Audio",
+      "price": 899.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "type": "Soundbar",
+        "channels": "5.0.2 Dolby Atmos",
+        "connectivity": "HDMI eARC, WiFi, Ethernet",
+        "features": "Trueplay tuning, Voice control (Alexa, Google)",
+        "dimensions": "45 x 4.5 x 3.4 inches",
+        "colors": ["Black", "White"]
+      },
+      "description": "Premium soundbar with Dolby Atmos"
+    },
+    {
+      "id": 16,
+      "name": "JBL Bar 5.1 Surround",
+      "category": "Audio",
+      "price": 599.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "type": "Soundbar with wireless subwoofer",
+        "channels": "5.1 surround sound",
+        "connectivity": "HDMI, Bluetooth, Optical",
+        "features": "Detachable surround speakers, 4K pass-through",
+        "power": "510W total",
+        "colors": ["Black"]
+      },
+      "description": "Versatile soundbar with detachable wireless speakers"
+    },
+    {
+      "id": 17,
+      "name": "iPad Pro 12.9-inch M2",
+      "category": "Tablets",
+      "price": 1099.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "12.9-inch Liquid Retina XDR",
+        "processor": "Apple M2 chip",
+        "storage": "128GB, 256GB, 512GB, 1TB, 2TB",
+        "connectivity": "WiFi 6E, 5G (cellular models)",
+        "features": "Face ID, Apple Pencil hover, ProRes video",
+        "colors": ["Space Gray", "Silver"]
+      },
+      "description": "Most advanced iPad with M2 chip"
+    },
+    {
+      "id": 18,
+      "name": "Samsung Galaxy Tab S9+",
+      "category": "Tablets",
+      "price": 899.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "12.4-inch Dynamic AMOLED 2X",
+        "processor": "Snapdragon 8 Gen 2",
+        "storage": "256GB, 512GB",
+        "connectivity": "WiFi 6E, 5G (optional)",
+        "features": "S Pen included, IP68 water resistance, DeX mode",
+        "colors": ["Beige", "Graphite"]
+      },
+      "description": "Premium Android tablet with S Pen"
+    },
+    {
+      "id": 19,
+      "name": "Amazon Echo Show 15",
+      "category": "Smart Home",
+      "price": 279.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "15.6-inch Full HD",
+        "camera": "5MP with auto-framing",
+        "audio": "2x 1.6-inch full-range speakers",
+        "features": "Alexa Built-in, Visual ID, Widget support",
+        "mounting": "Wall mount or stand (sold separately)",
+        "colors": ["Black"]
+      },
+      "description": "Large smart display for the whole family"
+    },
+    {
+      "id": 20,
+      "name": "Google Nest Hub Max",
+      "category": "Smart Home",
+      "price": 229.99,
+      "stock_status": "in_stock",
+      "specs": {
+        "display": "10-inch HD",
+        "camera": "6.5MP with Face Match",
+        "audio": "Stereo speakers with bass",
+        "features": "Google Assistant, Video calling, Smart home control",
+        "colors": ["Chalk", "Charcoal"]
+      },
+      "description": "Premium smart display with Nest integration"
+    }
+  ],
+  "product_comparisons": {
+    "iphone_vs_samsung": "iPhone 15 Pro offers seamless iOS ecosystem integration and longer software support, while Samsung Galaxy S24 Ultra provides S Pen functionality, larger display, and higher zoom capabilities.",
+    "macbook_vs_windows": "MacBook Pro offers superior battery life and optimized M3 performance, while Windows laptops like Dell XPS provide more ports, upgradeability, and compatibility with more software.",
+    "oled_vs_qled": "OLED TVs like LG C3 offer perfect blacks and infinite contrast, ideal for dark room viewing. QLED TVs like Samsung QN90C are brighter, better for bright rooms, and have no burn-in risk."
+  },
+  "recommendations": {
+    "budget_laptop_under_1000": ["HP Pavilion 15"],
+    "gaming_laptop": ["ASUS ROG Strix G16"],
+    "best_camera_phone": ["Google Pixel 8 Pro", "iPhone 15 Pro"],
+    "small_apartment_tv": ["TCL 6-Series 55-inch", "Sony X90L 55-inch"],
+    "best_headphones": ["Sony WH-1000XM5", "Bose QuietComfort Ultra Earbuds"],
+    "premium_tablet": ["iPad Pro 12.9-inch M2"]
+  }
+}

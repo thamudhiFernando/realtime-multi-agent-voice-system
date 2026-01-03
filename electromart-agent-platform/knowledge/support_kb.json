@@ -1,0 +1,240 @@
+{
+  "troubleshooting_guides": {
+    "phone_wont_turn_on": {
+      "issue": "Phone won't turn on",
+      "steps": [
+        "1. Charge the phone for at least 30 minutes using the original charger",
+        "2. Try a different charging cable and adapter",
+        "3. Perform a force restart: Hold Power + Volume Down for 10-15 seconds",
+        "4. Check for physical damage to the charging port",
+        "5. If still not working, visit a service center for diagnosis"
+      ],
+      "common_causes": ["Drained battery", "Faulty charger", "Software crash", "Hardware damage"]
+    },
+    "laptop_wont_boot": {
+      "issue": "Laptop won't boot or turn on",
+      "steps": [
+        "1. Disconnect all external devices (USB, monitors, etc.)",
+        "2. Hold power button for 30 seconds to drain residual power",
+        "3. Connect AC adapter and try to power on",
+        "4. Try different power outlet",
+        "5. Remove and reseat RAM (if comfortable)",
+        "6. If still not working, contact support for service"
+      ],
+      "common_causes": ["Power supply issue", "RAM not seated properly", "BIOS corruption", "Hardware failure"]
+    },
+    "tv_no_picture": {
+      "issue": "TV turns on but no picture",
+      "steps": [
+        "1. Check that the correct input source is selected",
+        "2. Verify all cables are securely connected",
+        "3. Try a different HDMI cable or port",
+        "4. Unplug TV for 60 seconds, then plug back in",
+        "5. Test with a different device (Blu-ray player, game console)",
+        "6. Check if backlight is working (look for faint image with flashlight)",
+        "7. Factory reset the TV (in Settings menu)"
+      ],
+      "common_causes": ["Wrong input", "Loose cable", "HDMI handshake issue", "Backlight failure"]
+    },
+    "headphones_not_pairing": {
+      "issue": "Bluetooth headphones won't pair",
+      "steps": [
+        "1. Ensure headphones are in pairing mode (usually flashing LED)",
+        "2. Turn Bluetooth off and on again on your device",
+        "3. Forget the headphones from Bluetooth settings and re-pair",
+        "4. Reset headphones to factory settings (check manual)",
+        "5. Charge headphones fully",
+        "6. Try pairing with a different device to isolate issue",
+        "7. Update firmware if available"
+      ],
+      "common_causes": ["Not in pairing mode", "Already connected to another device", "Bluetooth cache", "Low battery"]
+    },
+    "soundbar_no_audio": {
+      "issue": "Soundbar connected but no sound",
+      "steps": [
+        "1. Check that TV audio output is set to external speakers/ARC",
+        "2. Verify HDMI cable is connected to ARC/eARC port on TV",
+        "3. Increase volume on both TV and soundbar",
+        "4. Ensure soundbar is on correct input (HDMI, Optical, etc.)",
+        "5. Disable TV's internal speakers in settings",
+        "6. Try a different audio cable",
+        "7. Power cycle both TV and soundbar"
+      ],
+      "common_causes": ["Wrong TV audio settings", "Not using ARC port", "TV speakers still active", "Cable issue"]
+    },
+    "slow_laptop_performance": {
+      "issue": "Laptop running slow",
+      "steps": [
+        "1. Close unnecessary background applications",
+        "2. Check Task Manager for high CPU/RAM usage programs",
+        "3. Run disk cleanup to free up space",
+        "4. Ensure at least 10-15% free disk space",
+        "5. Scan for malware/viruses",
+        "6. Update operating system and drivers",
+        "7. Disable startup programs",
+        "8. Consider upgrading RAM or switching to SSD"
+      ],
+      "common_causes": ["Too many startup programs", "Low disk space", "Malware", "Outdated drivers", "Insufficient RAM"]
+    },
+    "screen_cracked": {
+      "issue": "Cracked or damaged screen",
+      "steps": [
+        "1. Do not attempt to use the device if glass is shattered",
+        "2. Back up your data immediately if possible",
+        "3. Cover crack with clear tape to prevent further damage",
+        "4. Visit authorized service center for repair quote",
+        "5. Check if covered under warranty or insurance",
+        "6. Screen replacement typically takes 1-2 hours"
+      ],
+      "common_causes": ["Accidental drop", "Impact damage", "Manufacturing defect (rare)"]
+    }
+  },
+  "warranty_information": {
+    "standard_warranty": {
+      "duration": "1 year from purchase date",
+      "coverage": [
+        "Manufacturing defects",
+        "Hardware failures under normal use",
+        "Parts and labor for repairs"
+      ],
+      "not_covered": [
+        "Accidental damage (drops, spills, cracks)",
+        "Cosmetic damage",
+        "Software issues",
+        "Normal wear and tear",
+        "Damage from unauthorized repairs",
+        "Lost or stolen devices"
+      ]
+    },
+    "extended_warranty": {
+      "name": "ElectroMart Protection Plus",
+      "options": [
+        {
+          "duration": "2 years total coverage",
+          "price": "10% of product price",
+          "additional_coverage": ["Accidental damage (2 claims)", "Battery replacement", "24/7 tech support"]
+        },
+        {
+          "duration": "3 years total coverage",
+          "price": "15% of product price",
+          "additional_coverage": ["Accidental damage (3 claims)", "Battery replacement", "Priority service", "Loaner device"]
+        }
+      ],
+      "purchase_window": "Must be purchased within 30 days of product purchase"
+    },
+    "warranty_claim_process": {
+      "steps": [
+        "1. Locate your receipt or order confirmation",
+        "2. Contact customer support with product details",
+        "3. Describe the issue and troubleshooting attempted",
+        "4. Support will issue RMA number if warranty repair approved",
+        "5. Ship device to service center (prepaid label provided)",
+        "6. Repair completed within 7-10 business days",
+        "7. Device shipped back to you"
+      ],
+      "required_documents": ["Proof of purchase", "Valid photo ID", "Warranty card (if applicable)"]
+    }
+  },
+  "repair_services": {
+    "in_warranty_repairs": {
+      "cost": "Free (parts and labor)",
+      "turnaround": "7-10 business days",
+      "process": "Mail-in or drop-off at service center"
+    },
+    "out_of_warranty_repairs": {
+      "phone_repairs": {
+        "screen_replacement": "$99-$329 depending on model",
+        "battery_replacement": "$49-$89",
+        "charging_port": "$59-$99",
+        "water_damage": "$149+ (diagnostic fee $40)"
+      },
+      "laptop_repairs": {
+        "screen_replacement": "$150-$400",
+        "keyboard_replacement": "$100-$200",
+        "battery_replacement": "$80-$150",
+        "motherboard_repair": "$200-$500+"
+      },
+      "tv_repairs": {
+        "screen_replacement": "Usually not economical (60-80% of TV cost)",
+        "power_board": "$100-$250",
+        "main_board": "$150-$300",
+        "backlight": "$200-$400"
+      },
+      "turnaround": "10-15 business days",
+      "diagnostic_fee": "$40 (waived if repair approved)"
+    },
+    "service_center_locations": [
+      {
+        "city": "New York",
+        "address": "123 Tech Street, New York, NY 10001",
+        "hours": "Mon-Sat 9AM-7PM, Sun 10AM-6PM",
+        "phone": "(555) 123-4567"
+      },
+      {
+        "city": "Los Angeles",
+        "address": "456 Electronics Ave, Los Angeles, CA 90001",
+        "hours": "Mon-Sat 9AM-7PM, Sun 10AM-6PM",
+        "phone": "(555) 234-5678"
+      },
+      {
+        "city": "Chicago",
+        "address": "789 Repair Blvd, Chicago, IL 60601",
+        "hours": "Mon-Sat 9AM-7PM, Sun 10AM-6PM",
+        "phone": "(555) 345-6789"
+      }
+    ]
+  },
+  "setup_guides": {
+    "tv_setup": {
+      "title": "New TV Setup Guide",
+      "steps": [
+        "1. Unbox and inspect for damage",
+        "2. Attach stand or mount on wall",
+        "3. Connect power cable",
+        "4. Connect HDMI devices (cable box, game console, soundbar)",
+        "5. Turn on TV and select language",
+        "6. Connect to WiFi network",
+        "7. Sign in to streaming apps",
+        "8. Run picture calibration (if available)",
+        "9. Adjust sound settings",
+        "10. Update firmware to latest version"
+      ]
+    },
+    "soundbar_setup": {
+      "title": "Soundbar Installation Guide",
+      "steps": [
+        "1. Place soundbar below TV or mount on wall",
+        "2. Connect HDMI cable from soundbar HDMI OUT to TV HDMI ARC port",
+        "3. Turn on TV's ARC/CEC settings",
+        "4. Connect subwoofer (if wireless, it should pair automatically)",
+        "5. Power on soundbar",
+        "6. Set TV audio output to external speakers/ARC",
+        "7. Test audio with content",
+        "8. Adjust soundbar EQ settings as desired",
+        "9. Set up voice assistant if available"
+      ]
+    },
+    "smart_home_device": {
+      "title": "Smart Home Device Setup",
+      "steps": [
+        "1. Download companion app (Alexa, Google Home, etc.)",
+        "2. Plug in device",
+        "3. Open app and select 'Add Device'",
+        "4. Follow on-screen instructions",
+        "5. Connect to WiFi network",
+        "6. Set device location and name",
+        "7. Link music streaming services",
+        "8. Set up voice recognition (if available)",
+        "9. Configure smart home controls",
+        "10. Test with voice commands"
+      ]
+    }
+  },
+  "common_questions": {
+    "how_to_check_warranty_status": "Visit our website and enter your serial number, or contact support with your purchase receipt.",
+    "can_i_repair_myself": "Self-repair may void warranty. We recommend authorized service centers. For out-of-warranty devices, proceed at your own risk.",
+    "data_backup_before_repair": "Yes, always back up your data. We are not responsible for data loss during repairs.",
+    "loaner_device_available": "Loaner devices are available for premium warranty customers and on a case-by-case basis.",
+    "international_warranty": "Warranty is valid in purchase country only. Contact support for international service options."
+  }
+}

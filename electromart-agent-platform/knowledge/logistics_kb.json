@@ -1,0 +1,186 @@
+{
+  "shipping_policies": {
+    "standard_shipping": {
+      "cost": "$5.99",
+      "delivery_time": "5-7 business days",
+      "free_threshold": "$50+",
+      "tracking": "Provided via email"
+    },
+    "expedited_shipping": {
+      "cost": "$14.99",
+      "delivery_time": "2-3 business days",
+      "cutoff_time": "2 PM local time",
+      "tracking": "Provided via email and SMS"
+    },
+    "express_shipping": {
+      "cost": "$24.99",
+      "delivery_time": "Next business day",
+      "cutoff_time": "12 PM local time",
+      "tracking": "Real-time tracking available"
+    },
+    "same_day_delivery": {
+      "cost": "$34.99",
+      "availability": "Select metro areas only",
+      "cutoff_time": "10 AM local time",
+      "delivery_window": "4-8 PM same day"
+    },
+    "in_store_pickup": {
+      "cost": "Free",
+      "ready_time": "2 hours for in-stock items",
+      "availability": "All locations",
+      "notification": "Email and SMS when ready"
+    },
+    "shipping_restrictions": [
+      "We ship to all 50 US states",
+      "PO Boxes accepted for standard shipping only",
+      "Some items cannot be shipped to Alaska or Hawaii",
+      "Large items (TVs 65+) may require signature"
+    ]
+  },
+  "order_tracking": {
+    "how_to_track": "Use tracking number provided in shipping confirmation email on our website or carrier website",
+    "tracking_updates": [
+      "Order Received - We've received your order",
+      "Processing - Order is being prepared",
+      "Shipped - Package is on its way",
+      "Out for Delivery - Package is with local carrier",
+      "Delivered - Package has been delivered"
+    ],
+    "tracking_issues": {
+      "no_tracking_update": "Tracking may take 24-48 hours to update after shipment",
+      "stuck_in_transit": "Contact carrier first, then our support if issue persists",
+      "delivered_but_not_received": "Check with neighbors, building manager. Report within 48 hours for investigation"
+    }
+  },
+  "delivery_options": {
+    "address_modification": {
+      "before_shipment": "Can be changed free of charge. Contact support immediately.",
+      "after_shipment": "Contact carrier directly. May incur additional fees.",
+      "not_possible": "Cannot change once out for delivery"
+    },
+    "delivery_scheduling": {
+      "reschedule": "Available for expedited and express shipments",
+      "weekend_delivery": "Saturday delivery available for $9.99 extra",
+      "hold_at_location": "Free service offered by most carriers"
+    },
+    "signature_requirements": {
+      "required_for": ["Orders over $500", "TVs and large appliances"],
+      "alternative": "Can authorize carrier to leave without signature (liability waiver)",
+      "missed_delivery": "Carrier will attempt redelivery next business day or hold at facility"
+    }
+  },
+  "return_policy": {
+    "standard_returns": {
+      "window": "30 days from delivery date",
+      "condition": "Unopened, original packaging, all accessories included",
+      "restocking_fee": "None for standard returns",
+      "refund_method": "Original payment method",
+      "refund_time": "5-7 business days after receiving return"
+    },
+    "opened_items": {
+      "window": "15 days from delivery date",
+      "condition": "Must be in like-new condition",
+      "restocking_fee": "15% restocking fee applies",
+      "exceptions": ["Headphones", "Earbuds - Final sale if opened due to hygiene"]
+    },
+    "non_returnable_items": [
+      "Opened headphones and earbuds",
+      "Digital downloads and software",
+      "Gift cards",
+      "Clearance and final sale items",
+      "Custom or personalized products"
+    ],
+    "return_process": {
+      "steps": [
+        "1. Log in to your account and go to Orders",
+        "2. Select the item you want to return",
+        "3. Choose return reason",
+        "4. Print prepaid return label",
+        "5. Pack item securely in original box",
+        "6. Drop off at any carrier location",
+        "7. Refund processed within 5-7 days of receiving return"
+      ],
+      "return_shipping": "Free for defective or wrong items. $6.99 for buyer's remorse returns."
+    }
+  },
+  "exchange_policy": {
+    "same_product_exchange": {
+      "reason": "Defective or damaged",
+      "process": "We'll send replacement immediately upon receiving return",
+      "cost": "Free shipping both ways"
+    },
+    "different_product_exchange": {
+      "process": "Return original item and place new order",
+      "price_difference": "Charged or refunded as applicable"
+    },
+    "color_size_variant": {
+      "process": "Free exchange within 30 days",
+      "availability": "Subject to stock availability"
+    }
+  },
+  "refund_policy": {
+    "refund_timeline": {
+      "after_return_received": "2-3 business days to inspect",
+      "refund_processing": "5-7 business days to original payment method",
+      "credit_card": "May take 1-2 billing cycles to appear on statement"
+    },
+    "partial_refunds": {
+      "reasons": [
+        "Item not in original condition",
+        "Missing accessories or packaging",
+        "Damaged due to misuse"
+      ],
+      "amount": "Prorated based on condition (50-85% of purchase price)"
+    },
+    "store_credit_option": {
+      "bonus": "Get 10% extra value as store credit instead of refund",
+      "expiration": "Store credit never expires",
+      "usage": "Can be used on any future purchase"
+    }
+  },
+  "order_cancellation": {
+    "before_shipment": {
+      "process": "Contact support or cancel from your account",
+      "refund": "Full refund within 3-5 business days",
+      "cutoff": "Must cancel within 2 hours of order placement"
+    },
+    "after_shipment": {
+      "process": "Cannot cancel, must return after delivery",
+      "option": "Refuse delivery for automatic return (free)"
+    }
+  },
+  "damaged_or_wrong_item": {
+    "report_within": "48 hours of delivery",
+    "process": [
+      "1. Take photos of damage and packaging",
+      "2. Contact support with order number and photos",
+      "3. Support will arrange pickup or provide return label",
+      "4. Replacement shipped immediately (2-day shipping)",
+      "5. No need to wait for return to receive replacement"
+    ],
+    "exceptions": "For high-value items ($1000+), return may be required first"
+  },
+  "international_shipping": {
+    "available": false,
+    "alternative": "We recommend using a package forwarding service",
+    "note": "Warranty may not be valid outside USA"
+  },
+  "bulk_orders": {
+    "definition": "Orders of 10+ units of same product",
+    "benefits": [
+      "Volume discounts available",
+      "Dedicated account manager",
+      "Custom delivery scheduling",
+      "Net payment terms available for businesses"
+    ],
+    "contact": "business@electromart.com or (555) 999-8888"
+  },
+  "holiday_shipping": {
+    "thanksgiving_black_friday": {
+      "order_by": "December 18 for standard shipping",
+      "guaranteed_delivery": "December 24"
+    },
+    "extended_returns": "Items purchased Nov 1 - Dec 31 can be returned until January 31",
+    "delays_expected": "Allow extra 2-3 days during peak holiday season"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "active_promotions": [
+    {
+      "id": 1,
+      "name": "New Year Sale 2024",
+      "description": "Start the year with amazing deals on electronics",
+      "discount_percentage": 15,
+      "start_date": "2024-01-01T00:00:00",
+      "end_date": "2024-01-31T23:59:59",
+      "promo_code": "NEWYEAR2024",
+      "applicable_categories": ["Phones", "Laptops", "TVs", "Audio"],
+      "terms": "Cannot be combined with other offers. Minimum purchase $500."
+    },
+    {
+      "id": 2,
+      "name": "Student Discount Program",
+      "description": "10% off for students with valid ID",
+      "discount_percentage": 10,
+      "start_date": "2024-01-01T00:00:00",
+      "end_date": "2024-12-31T23:59:59",
+      "promo_code": "STUDENT10",
+      "applicable_categories": ["Laptops", "Tablets", "Audio"],
+      "terms": "Valid student ID required. Year-round offer."
+    },
+    {
+      "id": 3,
+      "name": "Bundle & Save",
+      "description": "Buy phone + accessories, save 20%",
+      "discount_percentage": 20,
+      "start_date": "2024-01-01T00:00:00",
+      "end_date": "2024-03-31T23:59:59",
+      "promo_code": "BUNDLE20",
+      "applicable_categories": ["Phones", "Audio"],
+      "terms": "Must purchase phone and at least one accessory. Discount applies to accessory."
+    },
+    {
+      "id": 4,
+      "name": "Trade-In Bonus",
+      "description": "Extra $100 credit when you trade in your old device",
+      "discount_percentage": 0,
+      "bonus_credit": 100,
+      "start_date": "2024-01-01T00:00:00",
+      "end_date": "2024-02-29T23:59:59",
+      "promo_code": "TRADEIN100",
+      "applicable_categories": ["Phones", "Laptops", "Tablets"],
+      "terms": "In addition to regular trade-in value. Device must be functional."
+    },
+    {
+      "id": 5,
+      "name": "Free Shipping Weekend",
+      "description": "Free standard shipping on all orders",
+      "discount_percentage": 0,
+      "start_date": "2024-01-19T00:00:00",
+      "end_date": "2024-01-21T23:59:59",
+      "promo_code": "FREESHIP",
+      "applicable_categories": ["All"],
+      "terms": "No minimum purchase required. Standard shipping only."
+    }
+  ],
+  "loyalty_program": {
+    "name": "ElectroMart Rewards",
+    "description": "Earn points on every purchase and get exclusive benefits",
+    "tiers": [
+      {
+        "name": "Silver",
+        "requirements": "0-999 points",
+        "benefits": [
+          "Earn 1 point per $1 spent",
+          "Birthday month 2x points",
+          "Early access to sales",
+          "Free standard shipping on orders $50+"
+        ]
+      },
+      {
+        "name": "Gold",
+        "requirements": "1,000-4,999 points",
+        "benefits": [
+          "Earn 1.5 points per $1 spent",
+          "Birthday month 3x points",
+          "Extended 60-day returns",
+          "Free standard shipping on all orders",
+          "Exclusive member-only deals"
+        ]
+      },
+      {
+        "name": "Platinum",
+        "requirements": "5,000+ points",
+        "benefits": [
+          "Earn 2 points per $1 spent",
+          "Birthday month 4x points",
+          "Extended 90-day returns",
+          "Free expedited shipping on all orders",
+          "Dedicated customer service line",
+          "Annual $50 reward certificate",
+          "Invitation to VIP events"
+        ]
+      }
+    ],
+    "points_redemption": {
+      "100_points": "$5 off",
+      "250_points": "$15 off",
+      "500_points": "$35 off",
+      "1000_points": "$75 off"
+    },
+    "how_to_join": "Sign up is free at checkout or online. Start earning points immediately on your first purchase.",
+    "points_expiration": "Points expire 12 months after earning date if no activity."
+  },
+  "seasonal_campaigns": [
+    {
+      "name": "Black Friday 2024",
+      "date": "November 29, 2024",
+      "preview": "Up to 40% off select electronics. Doorbusters starting at 6 AM."
+    },
+    {
+      "name": "Cyber Monday 2024",
+      "date": "December 2, 2024",
+      "preview": "Online-only flash deals. New deals every hour."
+    },
+    {
+      "name": "Back to School",
+      "date": "August 2024",
+      "preview": "Student discounts on laptops, tablets, and accessories."
+    },
+    {
+      "name": "Spring Clearance",
+      "date": "March-April 2024",
+      "preview": "Make room for new inventory. Save up to 50% on select items."
+    }
+  ],
+  "newsletter": {
+    "benefits": [
+      "Exclusive email-only promo codes",
+      "Early notification of sales",
+      "Product launch announcements",
+      "Tips and tricks for your devices"
+    ],
+    "signup_bonus": "Get 10% off your next purchase when you subscribe",
+    "frequency": "Weekly emails, no spam"
+  },
+  "referral_program": {
+    "description": "Refer a friend and you both save",
+    "referrer_reward": "$25 credit",
+    "referee_reward": "$25 off first purchase of $100+",
+    "terms": "Friend must be a new customer. Credit applied after friend's first purchase."
+  },
+  "price_match_policy": {
+    "description": "We'll match any competitor's price",
+    "terms": [
+      "Must be identical product (model, color, storage, etc.)",
+      "Competitor must be authorized retailer",
+      "Price match within 14 days of purchase",
+      "Bring proof of lower price (ad, website screenshot)"
+    ],
+    "exclusions": "Does not apply to clearance, open-box, or refurbished items"
+  },
+  "financing_options": {
+    "description": "Buy now, pay later options available",
+    "options": [
+      {
+        "name": "0% APR for 12 months",
+        "terms": "On purchases $499+. Subject to credit approval."
+      },
+      {
+        "name": "0% APR for 24 months",
+        "terms": "On purchases $1,499+. Subject to credit approval."
+      },
+      {
+        "name": "Affirm Monthly Payments",
+        "terms": "Split purchases into 4 interest-free payments."
+      }
+    ]
+  }
+}
