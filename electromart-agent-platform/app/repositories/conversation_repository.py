@@ -79,7 +79,7 @@ class ConversationRepository:
             serialized_messages = []
             if messages:
                 for msg in messages:
-                    serialized_messages.append(ConversationService._serialize_message(msg))
+                    serialized_messages.append(ConversationRepository._serialize_message(msg))
 
             # Check if conversation exists
             conversation = db.query(Conversation).filter(

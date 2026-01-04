@@ -7,7 +7,7 @@ from typing import Dict, Any
 from pathlib import Path
 from sqlalchemy.orm import Session
 
-from app.utils.message_utils import get_user_message, get_message_content
+from app.utils.message_utils import get_user_message, get_message_content, is_user_message
 from langchain_core.prompts import ChatPromptTemplate
 
 from app.agents.multi_prompt_agent import MultiPromptAgent, PromptChain

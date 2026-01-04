@@ -6,6 +6,29 @@ from dotenv import load_dotenv
 load_dotenv()  # loads .env into os.environ
 
 import os
+
+# ============================================================================
+# LangSmith Configuration (MUST be set BEFORE importing any agent code)
+# ============================================================================
+# Set LangSmith environment variables from .env BEFORE any LangChain imports
+# This ensures all LangChain/LangGraph objects use the correct project
+
+# Read directly from environment variables set by load_dotenv()
+LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2", "false").lower() == "true"
+if LANGCHAIN_TRACING_V2:
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
+    os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT", "electromart-agents")
+    os.environ["LANGCHAIN_ENDPOINT"] = os.getenv("LANGCHAIN_ENDPOINT", "https://api.smith.langchain.com")
+    print(f"[STARTUP] LangSmith tracing ENABLED - Project: {os.environ['LANGCHAIN_PROJECT']}")
+else:
+    os.environ["LANGCHAIN_TRACING_V2"] = "false"
+    print("[STARTUP] LangSmith tracing DISABLED")
+
+# ============================================================================
+# Now import everything else (after LangSmith env vars are set)
+# ============================================================================
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -141,9 +164,19 @@ async def startup_event():
         logger.info("Configuration:")
         logger.info(f"  Environment: {settings.environment}")
         logger.info(f"  OpenAI Model: {settings.openai_model}")
-        logger.info(f"  LangSmith Tracing: {settings.langchain_tracing_v2}")
+        logger.info(f"  Database: {settings.database_url.split('@')[-1] if '@' in settings.database_url else settings.database_url}")
         logger.info(f"  Redis URL: {settings.redis_url}")
         logger.info(f"  CORS Origins: {', '.join(settings.cors_origins_list)}")
+        logger.info("-" * 60)
+        logger.info("LangSmith Observability:")
+        if settings.langchain_tracing_v2:
+            logger.info(f"  ✓ Status: ENABLED")
+            logger.info(f"  ✓ Project: {settings.langchain_project}")
+            logger.info(f"  ✓ Endpoint: {settings.langchain_endpoint}")
+            logger.info(f"  ✓ Dashboard: https://smith.langchain.com/")
+        else:
+            logger.info(f"  ✗ Status: DISABLED")
+            logger.info(f"  ℹ To enable: Set LANGCHAIN_TRACING_V2=true in .env")
         logger.info("-" * 60)
 
         logger.info("Features Enabled:")
@@ -155,6 +188,8 @@ async def startup_event():
         logger.info("  ✓ Sentiment Analysis (TextBlob)")
         logger.info("  ✓ Human Handoff Capability")
         logger.info("  ✓ Rate Limiting & Security")
+        if settings.langchain_tracing_v2:
+            logger.info("  ✓ LangSmith Tracing & Observability")
         logger.info("-" * 60)
 
         logger.info("API Documentation: http://localhost:8000/docs")

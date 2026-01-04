@@ -7,7 +7,7 @@ from typing import Dict, Any
 from pathlib import Path
 
 from langchain_core.prompts import ChatPromptTemplate
-from app.utils.message_utils import get_user_message, get_message_content
+from app.utils.message_utils import get_user_message, get_message_content, is_user_message
 
 from app.agents.multi_prompt_agent import PromptChain, MultiPromptAgent
 from app.graph.state import AgentConversationState
