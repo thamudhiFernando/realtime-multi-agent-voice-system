@@ -9,6 +9,8 @@ from pathlib import Path
 from langchain_core.prompts import ChatPromptTemplate
 from sqlalchemy.orm import Session
 
+from app.utils.message_utils import get_user_message, get_message_content, is_user_message
+
 from app.agents.multi_prompt_agent import MultiPromptAgent, PromptChain
 from app.database.connection import SessionLocal
 from app.graph.state import AgentConversationState, log_database_operation
@@ -138,10 +140,7 @@ Conversation history:
             Dict containing extracted requirements and relevant products
         """
         # Get the latest user message
-        user_message = next(
-            (msg for msg in reversed(state["conversation_messages"]) if msg["role"] == "user"),
-            None
-        )
+        user_message = get_user_message(state.get("conversation_messages", []))
 
         if not user_message:
             return {"error": "No user message found"}
@@ -153,7 +152,7 @@ Conversation history:
         # Execute P1: Extract requirements
         formatted_prompt = p1_config["template"].format_messages(
             history=history,
-            query=user_message["content"]
+            query=get_message_content(user_message)
         )
 
         llm_response = await self.llm.ainvoke(formatted_prompt)
@@ -176,7 +175,7 @@ Conversation history:
             }
 
         # Search for relevant products based on extracted requirements
-        relevant_products = await self._search_products(extracted_requirements, user_message["content"])
+        relevant_products = await self._search_products(extracted_requirements, get_message_content(user_message))
 
         # Record database READ operation
         state = log_database_operation(
@@ -194,7 +193,7 @@ Conversation history:
             "extracted_requirements": extracted_requirements,
             "relevant_products": relevant_products,
             "search_count": len(relevant_products),
-            "user_query": user_message["content"]
+            "user_query": get_message_content(user_message)
         }
 
     async def _execute_sequence_2(self, state: AgentConversationState, seq1_results: Dict[str, Any]) -> str:

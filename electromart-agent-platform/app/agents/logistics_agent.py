@@ -7,6 +7,7 @@ from typing import Dict, Any
 from pathlib import Path
 from sqlalchemy.orm import Session
 
+from app.utils.message_utils import get_user_message, get_message_content
 from langchain_core.prompts import ChatPromptTemplate
 
 from app.agents.multi_prompt_agent import MultiPromptAgent, PromptChain
@@ -118,13 +119,13 @@ Conversation history:
     # Execute Sequences
     # -----------------------------
     async def _execute_sequence_1(self, state: AgentConversationState) -> Dict[str, Any]:
-        user_message = next((msg for msg in reversed(state["conversation_messages"]) if msg["role"] == "user"), None)
+        user_message = get_user_message(state.get("conversation_messages", []))
         if not user_message:
             return {"error": "No user message found"}
 
         p1_config = self.prompt_chain.get_prompt(1)
         history = self._build_history(state["conversation_messages"])
-        formatted_prompt = p1_config["template"].format_messages(history=history, query=user_message["content"])
+        formatted_prompt = p1_config["template"].format_messages(history=history, query=get_message_content(user_message))
 
         llm_response = await self.llm.ainvoke(formatted_prompt)
 
@@ -136,7 +137,7 @@ Conversation history:
                 "inquiry_type": "order_status",
                 "order_number": None,
                 "tracking_number": None,
-                "customer_concern": user_message["content"],
+                "customer_concern": get_message_content(user_message),
                 "urgency": "medium",
                 "requires_order_lookup": True,
                 "action_needed": "info"
@@ -162,7 +163,7 @@ Conversation history:
                     }
                 )
 
-        return {"order_inquiry": order_inquiry, "order_data": order_data, "user_query": user_message["content"]}
+        return {"order_inquiry": order_inquiry, "order_data": order_data, "user_query": get_message_content(user_message)}
 
     async def _execute_sequence_2(self, state: AgentConversationState, seq1_results: Dict[str, Any]) -> str:
         p2_config = self.prompt_chain.get_prompt(2)

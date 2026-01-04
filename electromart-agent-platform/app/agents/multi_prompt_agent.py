@@ -11,6 +11,7 @@ from langchain_openai import ChatOpenAI
 from app.graph.state import AgentConversationState
 from app.utils.config import settings
 from app.utils.logger import log_agent_activity, logger
+from app.utils.message_utils import get_message_content, is_user_message, get_user_message
 
 
 class PromptChain:
@@ -131,16 +132,26 @@ class MultiPromptAgent(ABC):
 
         try:
             # Get the latest user message safely
-            user_message = next(
-                (
-                    msg for msg in reversed(state["conversation_messages"])
-                    if getattr(msg, "role", None) == "user"  # works for HumanMessage
-                       or (isinstance(msg, dict) and msg.get("role") == "user")  # works for dicts
-                ),
-                None
-            )
+            # Get the latest user message - Handle both dicts and LangChain Message objects
+            messages = state.get("conversation_messages", [])
 
-            if not user_message:
+            # Find user message - handle both TypedDict and LangChain HumanMessage
+            user_message = None
+            message_content = None
+
+            for msg in reversed(messages):
+                # Check if it's a LangChain Message object (HumanMessage)
+                if hasattr(msg, 'type') and msg.type == "human":
+                    user_message = msg
+                    message_content = msg.content if hasattr(msg, 'content') else None
+                    break
+                # Check if it's a dict with role="user"
+                elif isinstance(msg, dict) and msg.get("role") == "user":
+                    user_message = msg
+                    message_content = msg.get("content")
+                    break
+
+            if not user_message or not message_content:
                 state["generated_response"] = f"How can I help you?"
                 state["should_end_conversation_turn"] = True
                 return state
@@ -224,7 +235,7 @@ class MultiPromptAgent(ABC):
                 state["current_active_agent"] = self.agent_name
 
                 # Check if handoff is needed
-                handoff_check = await self._check_handoff_needed(user_message["content"], response)
+                handoff_check = await self._check_handoff_needed(get_message_content(user_message), response)
                 if handoff_check["needs_handoff"]:
                     state["requires_agent_handoff"] = True
                     state["target_handoff_agent"] = handoff_check["target_agent"]
@@ -233,7 +244,7 @@ class MultiPromptAgent(ABC):
                     state["should_end_conversation_turn"] = True
 
                 # Add response to messages
-                from app.graph import append_message_to_conversation
+                from app.graph.state import append_message_to_conversation
                 state = append_message_to_conversation(
                     state,
                     message_role="assistant",
@@ -303,7 +314,9 @@ class MultiPromptAgent(ABC):
 
         history_parts = []
         for msg in messages[-6:-1]:  # Last 5 messages excluding current
-            role = "Customer" if msg["role"] == "user" else "Agent"
-            history_parts.append(f"{role}: {msg['content']}")
+            role = "Customer" if is_user_message(msg) else "Agent"
+            content = get_message_content(msg)
+            if content:
+                history_parts.append(f"{role}: {content}")
 
         return "\n".join(history_parts) if history_parts else "No previous conversation"

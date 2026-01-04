@@ -6,11 +6,11 @@ import ChatInterface from "@/components/ChatInterface";
 
 
 export default function Home() {
-  return (
-    <ErrorBoundary>
-      <Box sx={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
-        <ChatInterface />
-      </Box>
-    </ErrorBoundary>
-  );
+    return (
+        <ErrorBoundary>
+            <Box sx={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
+                <ChatInterface />
+            </Box>
+        </ErrorBoundary>
+    );
 }

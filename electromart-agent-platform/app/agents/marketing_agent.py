@@ -7,6 +7,7 @@ from typing import Dict, Any
 from pathlib import Path
 
 from langchain_core.prompts import ChatPromptTemplate
+from app.utils.message_utils import get_user_message, get_message_content, is_user_message
 
 from app.agents.multi_prompt_agent import MultiPromptAgent, PromptChain
 from app.graph.state import AgentConversationState
@@ -111,13 +112,13 @@ Conversation history:
     # Execute Sequences
     # -----------------------------
     async def _execute_sequence_1(self, state: AgentConversationState) -> Dict[str, Any]:
-        user_message = next((msg for msg in reversed(state["conversation_messages"]) if msg["role"] == "user"), None)
+        user_message = get_user_message(state.get("conversation_messages", []))
         if not user_message:
             return {"error": "No user message found"}
 
         p1_config = self.prompt_chain.get_prompt(1)
         history = self._build_history(state["conversation_messages"])
-        formatted_prompt = p1_config["template"].format_messages(history=history, query=user_message["content"])
+        formatted_prompt = p1_config["template"].format_messages(history=history, query=get_message_content(user_message))
 
         llm_response = await self.llm.ainvoke(formatted_prompt)
 
@@ -137,7 +138,7 @@ Conversation history:
 
         relevant_promotions = self._find_relevant_promotions(customer_analysis)
 
-        return {"customer_analysis": customer_analysis, "relevant_promotions": relevant_promotions, "user_query": user_message["content"]}
+        return {"customer_analysis": customer_analysis, "relevant_promotions": relevant_promotions, "user_query": get_message_content(user_message)}
 
     async def _execute_sequence_2(self, state: AgentConversationState, seq1_results: Dict[str, Any]) -> str:
         p2_config = self.prompt_chain.get_prompt(2)

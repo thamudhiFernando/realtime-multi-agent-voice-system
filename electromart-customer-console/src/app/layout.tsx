@@ -4,20 +4,20 @@ import './globals.css';
 import React from "react";
 
 export const metadata: Metadata = {
-  title: 'ElectroMart - Multi-Agent Support System',
-  description: 'Intelligent customer support powered by AI agents',
+    title: 'ElectroMart - Multi-Agent Support System',
+    description: 'Intelligent customer support powered by AI agents',
 };
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
+                                       children,
+                                   }: {
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>
+    return (
+        <html lang="en" suppressHydrationWarning>
+        <body suppressHydrationWarning>
         <ThemeRegistry>{children}</ThemeRegistry>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }

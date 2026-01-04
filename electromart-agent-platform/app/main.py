@@ -12,6 +12,7 @@ import uvicorn
 
 from app.api.routes import router
 from app.api.health import router as health_router
+from app.api.demo import router as demo_router
 from app.api.socketio_handler import socket_app, sio
 from app.api.middleware import (
     RequestIDMiddleware,
@@ -86,6 +87,9 @@ app.include_router(router, prefix="/api", tags=["API"])
 
 # Include health and monitoring routes (no prefix for standard /health)
 app.include_router(health_router, tags=["Health & Monitoring"])
+
+# Include demo dashboard routes (for showcasing database operations)
+app.include_router(demo_router, tags=["Demo Dashboard"])
 
 # Mount Socket.IO
 app.mount("/", socket_app)
@@ -241,7 +245,7 @@ async def root():
 def main():
     """Run the application"""
     uvicorn.run(
-        "backend.main:app",
+        "app.main:app",
         host=settings.backend_host,
         port=settings.backend_port,
         reload=settings.environment == "development",

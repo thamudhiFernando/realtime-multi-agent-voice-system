@@ -91,17 +91,7 @@ export default function ChatInterface() {
 
                     {/* Action Buttons */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        {sessionId && (
-                            <Chip
-                                label={`Session: ${sessionId.slice(0, 8)}...`}
-                                size="small"
-                                sx={{
-                                    bgcolor: 'rgba(255, 255, 255, 0.2)',
-                                    color: 'white',
-                                    fontFamily: 'monospace',
-                                }}
-                            />
-                        )}
+                        {/* Session ID hidden from user view */}
 
                         <Button
                             variant="outlined"

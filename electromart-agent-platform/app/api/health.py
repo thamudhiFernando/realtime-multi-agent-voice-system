@@ -56,12 +56,12 @@ async def comprehensive_health_check() -> HealthCheckResponse:
 
     # Check feature availability
     features = {
-        "persistent_sessions": services["redis"]["status"] == "healthy",
-        "analytics": services["redis"]["status"] == "healthy",
+        "persistent_sessions": services["redis"].status == "healthy",
+        "analytics": services["redis"].status == "healthy",
         "sentiment_analysis": True,  # TextBlob is always available after install
-        "human_handoff": services["redis"]["status"] == "healthy",
-        "database_operations": services["database"]["status"] in ["healthy", "not_configured"],
-        "multi_agent_workflow": services["openai"]["status"] == "healthy"
+        "human_handoff": services["redis"].status == "healthy",
+        "database_operations": services["database"].status in ["healthy", "not_configured"],
+        "multi_agent_workflow": services["openai"].status == "healthy"
     }
 
     return HealthCheckResponse(
@@ -380,7 +380,8 @@ def _determine_overall_status(services: Dict[str, ServiceHealth]) -> str:
 
     if "unhealthy" in statuses:
         # Check if critical services are unhealthy
-        if services.get("openai", {}).get("status") == "unhealthy":
+        openai_service = services.get("openai")
+        if openai_service and openai_service.status == "unhealthy":
             return "unhealthy"
         # Redis unhealthy is degraded (fallback available)
         return "degraded"

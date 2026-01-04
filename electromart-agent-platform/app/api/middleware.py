@@ -12,7 +12,7 @@ import uuid
 from typing import Callable
 
 from app.schemas.schemas import ErrorResponse, ErrorDetail
-from app.utils import logger
+from app.utils.logger import logger
 
 
 class RequestIDMiddleware(BaseHTTPMiddleware):

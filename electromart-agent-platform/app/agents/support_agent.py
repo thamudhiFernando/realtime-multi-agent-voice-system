@@ -7,6 +7,7 @@ from typing import Dict, Any
 from pathlib import Path
 
 from langchain_core.prompts import ChatPromptTemplate
+from app.utils.message_utils import get_user_message, get_message_content
 
 from app.agents.multi_prompt_agent import PromptChain, MultiPromptAgent
 from app.graph.state import AgentConversationState
@@ -122,13 +123,13 @@ Conversation history:
     # Execute Sequences
     # -----------------------------
     async def _execute_sequence_1(self, state: AgentConversationState) -> Dict[str, Any]:
-        user_message = next((msg for msg in reversed(state["conversation_messages"]) if msg["role"] == "user"), None)
+        user_message = get_user_message(state.get("conversation_messages", []))
         if not user_message:
             return {"error": "No user message found"}
 
         p1_config = self.prompt_chain.get_prompt(1)
         history = self._build_history(state["conversation_messages"])
-        formatted_prompt = p1_config["template"].format_messages(history=history, query=user_message["content"])
+        formatted_prompt = p1_config["template"].format_messages(history=history, query=get_message_content(user_message))
 
         llm_response = await self.llm.ainvoke(formatted_prompt)
 
@@ -148,12 +149,12 @@ Conversation history:
                 "warranty_status_check_needed": False
             }
 
-        relevant_solutions = self._find_relevant_solutions(problem_diagnosis, user_message["content"])
+        relevant_solutions = self._find_relevant_solutions(problem_diagnosis, get_message_content(user_message))
 
         if problem_diagnosis.get("requires_human_escalation") or problem_diagnosis.get("severity") == "critical":
             state["conversation_context"]["requires_human_handoff"] = True
 
-        return {"problem_diagnosis": problem_diagnosis, "relevant_solutions": relevant_solutions, "user_query": user_message["content"]}
+        return {"problem_diagnosis": problem_diagnosis, "relevant_solutions": relevant_solutions, "user_query": get_message_content(user_message)}
 
     async def _execute_sequence_2(self, state: AgentConversationState, seq1_results: Dict[str, Any]) -> str:
         p2_config = self.prompt_chain.get_prompt(2)
