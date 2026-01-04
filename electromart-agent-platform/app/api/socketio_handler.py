@@ -9,6 +9,7 @@ import uuid
 import time
 
 from app.graph.workflow import process_message
+from app.repositories.conversation_repository import ConversationRepository
 from app.utils.analytics import get_analytics
 from app.utils.config import settings
 from app.utils.deduplication import get_dedup_manager
@@ -103,6 +104,24 @@ async def process_message_worker(queued_msg: QueuedMessage) -> Dict[str, Any]:
         # Save to Redis for persistence
         session_manager = await get_session_manager()
         await session_manager.save_session(queued_msg.session_id, result_state)
+
+        # Save to PostgreSQL database for persistent storage
+        try:
+            messages = result_state.get("conversation_messages", [])
+            current_agent = result_state.get("current_active_agent")
+            context = result_state.get("conversation_context", {})
+
+            ConversationRepository.save_conversation(
+                session_id=queued_msg.session_id,
+                messages=messages,
+                current_agent=current_agent,
+                context=context,
+                customer_id=None
+            )
+            logger.debug(f"Saved conversation {queued_msg.session_id} to PostgreSQL database")
+        except Exception as db_error:
+            logger.error(f"Failed to save conversation to database: {str(db_error)}")
+            # Don't fail the request if database save fails
 
         # Get response using new state key names
         response_text = result_state.get("generated_response", "I'm not sure how to respond to that.")
@@ -342,6 +361,24 @@ async def disconnect(sid: str):
             session_manager = await get_session_manager()
             await session_manager.save_session(session_id, session_data['state'])
             logger.info(f"Saved session {session_id} to Redis")
+
+            # Also save to PostgreSQL database
+            try:
+                result_state = session_data['state']
+                messages = result_state.get("conversation_messages", [])
+                current_agent = result_state.get("current_active_agent")
+                context = result_state.get("conversation_context", {})
+
+                ConversationRepository.save_conversation(
+                    session_id=session_id,
+                    messages=messages,
+                    current_agent=current_agent,
+                    context=context,
+                    customer_id=None
+                )
+                logger.info(f"Saved session {session_id} to PostgreSQL database")
+            except Exception as db_error:
+                logger.error(f"Failed to save conversation to database on disconnect: {str(db_error)}")
 
         del active_sessions[sid]
     else:

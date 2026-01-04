@@ -16,7 +16,7 @@ from app.utils.logger import logger
 # -----------------------------
 # Paths
 # -----------------------------
-BASE_DIR = Path(__file__).resolve().parent.parent  # points to 'app' parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # points to project root
 KNOWLEDGE_DIR = BASE_DIR / "data/knowledge"
 
 # -----------------------------
